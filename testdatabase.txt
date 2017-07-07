@@ -1,0 +1,114 @@
+ 
+ json-server --watch db.json
+
+
+https://github.com/typicode/json-server
+
+ Resources
+  http://localhost:3000/posts
+  http://localhost:3000/comments
+  http://localhost:3000/albums
+  http://localhost:3000/photos
+  http://localhost:3000/todos
+  http://localhost:3000/users
+
+  Home
+  http://localhost:3000
+
+  Routes
+
+All HTTP verbs are supported.
+View usage examples.
+GET	/posts
+GET	/posts/1
+GET	/posts/1/comments
+GET	/comments?postId=1
+GET	/posts?userId=1
+POST	/posts
+PUT	/posts/1
+PATCH	/posts/1
+DELETE	/posts/1
+
+
+
+Here's some code using jQuery showing what can be done with JSONPlaceholder. Since GitHub loads jQuery, you can simply copy and paste these examples in a console.
+Showing a resource
+
+$.ajax('http://jsonplaceholder.typicode.com/posts/1', {
+  method: 'GET'
+}).then(function(data) {
+  console.log(data);
+});
+
+Listing resources
+
+$.ajax('http://jsonplaceholder.typicode.com/posts', {
+  method: 'GET'
+}).then(function(data) {
+  console.log(data);
+});
+
+Creating a resource
+
+// POST adds a random id to the object sent
+$.ajax('http://jsonplaceholder.typicode.com/posts', {
+  method: 'POST',
+  data: {
+    title: 'foo',
+    body: 'bar',
+    userId: 1
+  }
+}).then(function(data) {
+  console.log(data);
+});
+
+/* will return
+{
+  id: 101,
+  title: 'foo',
+  body: 'bar',
+  userId: 1
+}
+*/
+
+Note: the resource will not be really created on the server but it will be faked as if.
+Updating a resource
+
+$.ajax('http://jsonplaceholder.typicode.com/posts/1', {
+  method: 'PUT',
+  data: {
+    id: 1,
+    title: 'foo',
+    body: 'bar',
+    userId: 1
+  }
+}).then(function(data) {
+  console.log(data);
+});
+
+/* will return
+{
+  id: 1
+  title: 'foo',
+  body: 'bar',
+  userId: 1
+}
+*/
+
+$.ajax('http://jsonplaceholder.typicode.com/posts/1', {
+  method: 'PATCH',
+  data: {
+    title: 'foo'
+  }
+}).then(function(data) {
+  console.log(data);
+});
+
+/* will return
+{
+  id: 1
+  title: 'foo',
+  body: 'quia et suscipit [...]',
+  userId: 1
+}
+*/

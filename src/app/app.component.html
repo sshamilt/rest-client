@@ -1,0 +1,15 @@
+<app-top-nav></app-top-nav>
+<div class="container text-left">
+	<div class="row">
+		<!--
+		<div class="col-sm-4">
+			<app-sidebar-cmp></app-sidebar-cmp>
+		</div>
+		-->
+		<div class="col-sm-12">
+			<section class="main-container" [ngClass]="{sidebarPushRight: isActive}">
+				<router-outlet></router-outlet>
+			</section>
+		</div>
+	</div>
+ </div>
